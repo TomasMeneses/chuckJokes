@@ -7,6 +7,7 @@ const src: React.FC = () => {
     <>
       <Home />
       <GlobalStyle />
+      
     </>
   )
 }
