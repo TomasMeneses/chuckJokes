@@ -10,8 +10,15 @@ export const HomeContainer = styled.div`
 
     .input-group{
 
-    }
+        
 
+    }
+    .search-joke-container {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
     .joker{
         display: block;
     }

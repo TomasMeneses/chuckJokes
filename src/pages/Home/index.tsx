@@ -61,23 +61,27 @@ const Home: React.FC = () => {
                 <img src={categorySelected?.icon_url} alt={categorySelected?.value}/>
                 <h3>{categorySelected?.value}</h3>
             </div>
+            
+            <div className="search-joke-container">
+                <h2>Find Joke</h2>
 
-            <h2>Find Joke</h2>
+                <div className="input-group">
+                    <input type="text" onChange={ e => setSearchJoke(e.target.value)} />
+                    <button type="submit" onClick={handleJokes}> Find joke</button>
+                </div>
+                <p>Find results for:</p>
+                <div className="joker">
+                    { isLoad ? <img src={LoadGif} alt="load"/> : resultSearch.map( result => (
+                        <div key={result.id}>
+                            <img src={result.icon_url} alt={result.value}/>
+                            <h3>{result.value}</h3>
+                        </div>
+                    )) }
 
-            <div className="input-group">
-                <input type="text" onChange={ e => setSearchJoke(e.target.value)} />
-                <button type="submit" onClick={handleJokes}> Find joke</button>
+                </div>
             </div>
-            <p>Find results for:</p>
-            <div className="joker">
-                { isLoad ? <img src={LoadGif} alt="load"/> : resultSearch.map( result => (
-                    <div key={result.id}>
-                        <img src={result.icon_url} alt={result.value}/>
-                        <h3>{result.value}</h3>
-                    </div>
-                )) }
+            
 
-            </div>
             
             
 
