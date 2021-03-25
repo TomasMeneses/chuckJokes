@@ -30,6 +30,8 @@ export const HomeContainer = styled.div`
 
         select, button {
             width: 150px;
+            background: #5965e0;
+            color: white;
         }
         
         

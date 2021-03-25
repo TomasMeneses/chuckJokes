@@ -72,7 +72,7 @@ const Home: React.FC = () => {
                         }
                     </select>
                     <input type="text" onChange={ e => setSearchJoke(e.target.value)} />
-                    <button type="submit" onClick={handleJokes}> Find joke</button>
+                    <button type="submit" onClick={handleJokes}> FIND JOKE</button>
                 </div>
 
                 <p>Find results for:</p>
