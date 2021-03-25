@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const HomeContainer = styled.div`
     width: 100%;
-    height: 100vh;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -42,8 +41,27 @@ export const HomeContainer = styled.div`
         align-items: center;
         flex-direction: column;
     }
+
     .joker{
-        display: block;
+        display: flex;
+        max-width: 800px;
+        justify-content: center;
+        align-items: left;
+        flex-direction: column;
+    }
+
+    .joke-container {
+        display: flex;
+        flex-direction: row;
+        img {
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+        }
+
+        h3 {
+            margin: 10px;
+        }
     }
 
 `

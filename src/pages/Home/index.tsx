@@ -74,11 +74,11 @@ const Home: React.FC = () => {
                     <input type="text" onChange={ e => setSearchJoke(e.target.value)} />
                     <button type="submit" onClick={handleJokes}> Find joke</button>
                 </div>
-                
+
                 <p>Find results for:</p>
                 <div className="joker">
                     { isLoad ? <img src={LoadGif} alt="load"/> : resultSearch.map( result => (
-                        <div key={result.id}>
+                        <div className="joke-container" key={result.id}>
                             <img src={result.icon_url} alt={result.value}/>
                             <h3>{result.value}</h3>
                         </div>
