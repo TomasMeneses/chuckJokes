@@ -10,7 +10,7 @@ import { IProps } from '../../types/interfaces';
 
 
 const Header: React.FC<IProps> = ({handleSetTheme}) => {
-  const { colors, title } = useContext(ThemeContext);
+  const { title } = useContext(ThemeContext);
   
   
   return (
