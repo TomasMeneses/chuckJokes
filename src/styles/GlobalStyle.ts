@@ -8,7 +8,7 @@ export default createGlobalStyle`
         
     }
     body{
-        background: #cccc;
+        background: ${props => props.theme.colors.background};
         font-family: 'Roboto', sans-serif;
         
     }

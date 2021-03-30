@@ -5,13 +5,12 @@ import LoadGif from '../../img/giphy.gif';
 import { HomeContainer } from './style';
 import api from '../../service/api';
 
-interface IJoke{
-    id: string;
-    icon_url: string;
-    value: string;
-}
+import Header from '../../components/Header';
+import { IProps, IJoke } from '../../types/interfaces'
+import { FaSearch } from 'react-icons/fa';
 
-const Home: React.FC = () => {
+
+const Home: React.FC<IProps> = ({handleSetTheme}) => {
     const [ categoriesJoke, setCategoriesJoke ] = useState([]);
     
     const [ categorySelected, setCategorySelected ] = useState<IJoke>()
@@ -35,6 +34,7 @@ const Home: React.FC = () => {
         setIsLoad(true)
         const response = await api.get(`jokes/search?query=${searchJoke}`)
         setResultSearch(response.data.result)
+        setCategorySelected(undefined)
         if(response.status === 200 ){
             setIsLoad(false)
         } 
@@ -44,6 +44,7 @@ const Home: React.FC = () => {
         setIsLoad(true)
         const response = await api.get(`jokes/random?category=${event.target.value}`)
         setCategorySelected(response.data)
+        setResultSearch([])
         if( response.status === 200 ){ 
             setIsLoad(false)
         } 
@@ -55,13 +56,13 @@ const Home: React.FC = () => {
 
     return (
         <HomeContainer>
-            <div>
-                <img src={categorySelected?.icon_url} alt={categorySelected?.value}/>
-                <h3>{categorySelected?.value}</h3>
-            </div>
+            
+            <Header handleSetTheme={handleSetTheme}/>
+
+            
             
             <div className="search-joke-container">
-                <h2>Find Joke</h2>
+                <h2>Are you looking for a joke? 😂🤣🤣</h2>
 
                 <div className="input-group">
                     <select name="" id="" onChange={handleJokeByCategory}>
@@ -71,19 +72,29 @@ const Home: React.FC = () => {
                         ))  
                         }
                     </select>
+                    
                     <input type="text" onChange={ e => setSearchJoke(e.target.value)} />
-                    <button type="submit" onClick={handleJokes}> FIND JOKE</button>
+                    <button type="submit" onClick={handleJokes}> Search <FaSearch/> </button>
                 </div>
 
-                <p>Find results for:</p>
-                <div className="joker">
-                    { isLoad ? <img src={LoadGif} alt="load"/> : resultSearch.map( result => (
-                        <div className="joke-container" key={result.id}>
-                            <img src={result.icon_url} alt={result.value}/>
-                            <h3>{result.value}</h3>
-                        </div>
-                    )) }
+                <div className="joke-container">
+                    <div className="joker">
+                        { isLoad ? <img src={LoadGif} alt="load"/> : resultSearch.map( result => (
+                            <div className="joke-list-container" key={result.id}>
+                                <ul>
+                                    <li>{result.value}</li>
+                                </ul>
+                            </div>
+                        )) }
 
+                        {!isLoad && <div className="joke-list-container">
+                                
+                                <li>{categorySelected?.value}</li>
+                            </div> 
+                            }
+
+                    </div>
+                    
                 </div>
             </div>
             

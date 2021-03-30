@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { useCallback, useState }  from 'react';
 import GlobalStyle from '../src/styles/GlobalStyle';
 import Home from './pages/Home'
 
-const src: React.FC = () => {
+
+import {light} from './styles/themes/light';
+import {dark} from './styles/themes/dark';
+import usePersistedState from './utils/usePersistedState';
+import { ThemeProvider } from 'styled-components';
+
+
+const App = () => {
+  const [theme, setTheme] = usePersistedState('theme',light);
+
+
+  const handleSetTheme = useCallback(() => {
+    setTheme(theme.title === 'light' ? dark : light);
+    
+  }, [theme, setTheme]);
   return (
     <>
-      <Home />
+    <ThemeProvider theme={theme}>
+
+      <Home handleSetTheme={handleSetTheme} />
       <GlobalStyle />
+    </ThemeProvider>
       
     </>
   )
 }
 
-export default src;
+export default App;

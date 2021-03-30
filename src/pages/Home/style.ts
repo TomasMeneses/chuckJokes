@@ -39,6 +39,8 @@ export const HomeContainer = styled.div`
     }
     .search-joke-container {
         display:flex;
+        color: ${props => props.theme.colors.font} ;
+        margin-top: 20px;
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -52,18 +54,21 @@ export const HomeContainer = styled.div`
         flex-direction: column;
     }
 
-    .joke-container {
+    .joke-list-container {
         display: flex;
         flex-direction: row;
-        img {
-            width: 50px;
-            height: 50px;
+        margin: 10px;
+        
+        li {
+            font-size: 20px;
+        }
+        span {
             margin: 10px;
         }
+    }
 
-        h3 {
-            margin: 10px;
-        }
+    .joke-container {
+
     }
 
 `
