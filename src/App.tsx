@@ -1,4 +1,4 @@
-import React, { useCallback, useState }  from 'react';
+import React, { useCallback }  from 'react';
 import GlobalStyle from '../src/styles/GlobalStyle';
 import Home from './pages/Home'
 
