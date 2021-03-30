@@ -77,6 +77,7 @@ const Home: React.FC<IProps> = ({handleSetTheme}) => {
                     <button type="submit" onClick={handleJokes}> Search <FaSearch/> </button>
                 </div>
 
+                
                 <div className="joke-container">
                     <div className="joker">
                         { isLoad ? <img src={LoadGif} alt="load"/> : resultSearch.map( result => (
