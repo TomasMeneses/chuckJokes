@@ -16,4 +16,4 @@ You will also see any lint errors in the console.
 
 ### `Demo :)`
 
-You can see that code running in [https://chuckjokes-mu.vercel.app/](https://chuckjokes-mu.vercel.app/)
+You can see this code running in [https://chuckjokes-mu.vercel.app/](https://chuckjokes-mu.vercel.app/)
